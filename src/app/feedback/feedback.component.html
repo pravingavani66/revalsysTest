@@ -1,0 +1,60 @@
+<div class="container">
+<div class="row">
+    <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+<div class="card">
+    <h5 class="card-header">FeedBacks</h5>
+    <div class="card-body">
+    <form [formGroup]="feedback" >
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+        <input type="text" alphaInput inputType="alpha" placeholder="Name"  class="form-control"formControlName="name" minlength="3" maxlength="20">
+      </p>  
+      <div *ngIf="isSubmitted && formControls.name.errors" class="alert alert-danger">
+        <div *ngIf="formControls.name.errors.required">Name is required</div>
+        <div *ngIf="formControls.name.errors.minlength || formControls.name.errors.pattern "> 
+            Name must be at least 3 characters long and Name must be alphabetic only
+       </div> 
+      </div>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+        <input type="text" placeholder="Email ID"  class="form-control"formControlName="email">
+      </p>  
+      <div *ngIf="isSubmitted && formControls.email.errors" class="alert alert-danger">
+        <div *ngIf="formControls.email.errors.required">Email ID is required</div> 
+        <div *ngIf="formControls.email.errors.email || formControls.email.errors.pattern ">Invalid email address
+      </div>
+      </div>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.mobNo.errors }">
+        <input type="text" placeholder="Mobile No"  class="form-control"formControlName="mobNo" minlength="10" maxlength="10">
+      </p>  
+      <div *ngIf="isSubmitted && formControls.mobNo.errors" class="alert alert-danger">
+        <div *ngIf="formControls.mobNo.errors.required">Mobile NO is required</div>
+        <div *ngIf="formControls.mobNo.errors.minlength || formControls.mobNo.errors.pattern"> 
+            Mobile NO can be min 10 characters and Mobile NO must be Numbers only
+       </div> 
+      </div>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.comment.errors }">
+        
+        <textarea class="form-control" rows="3"formControlName="comment" maxlength="20" minlength="8"></textarea>
+    </p>
+  
+      <div *ngIf="isSubmitted && formControls.comment.errors" class="alert alert-danger">
+        <div *ngIf="formControls.comment.errors.required">comment is required</div>
+        <div *ngIf="formControls.comment.errors.minlength"> 
+            comment must be min 8 characters .
+       </div>  
+       <div *ngIf="formControls.comment.errors.maxlength"> 
+        comment can be max 20 characters long.
+   </div> 
+      </div>
+      <p>
+        <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+      </p>
+    </form>
+</div>
+</div>
+  </div>
+<div class="col-sm-4"></div>
+</div>
+</div>
+

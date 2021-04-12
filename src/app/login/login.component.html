@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+<div class="card">
+  <h5 class="card-header">LOGIN</h5>
+  <div class="card-body">
+  <form [formGroup]="loginForm" class="login-container" >
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+      <input type="text" placeholder="username"  class="form-control"formControlName="username" minlength="3" maxlength="20">
+    </p>  
+    <div *ngIf="isSubmitted && formControls.username.errors" class="alert alert-danger">
+      <div *ngIf="formControls.username.errors.required">User Name is required</div>
+      <div *ngIf="formControls.username.errors.minlength"> 
+          Username can be min 3 characters .
+     </div> 
+    </div>
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      <input type="password" placeholder="Password" class="form-control" formControlName="password" maxlength="20" minlength="8">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.password.errors" class="alert alert-danger">
+      <div *ngIf="formControls.password.errors.required">Password is required</div>
+      <div *ngIf="formControls.password.errors.minlength"> 
+          Password must be min 8 characters .
+     </div>  
+     <div *ngIf="formControls.password.errors.maxlength"> 
+      Password can be max 20 characters long.
+ </div> 
+    </div>
+    <p>
+      <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+    </p>
+  </form>
+</div>
+</div>
+</div>
+<div class="col-sm-4"></div>
+</div>

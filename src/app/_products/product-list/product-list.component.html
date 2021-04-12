@@ -1,0 +1,56 @@
+<div class="container">
+<div class="row">
+  <div class="col-lg-3">
+      <div class="form-group">
+          <label for="sel1">Sorting Type:
+          </label>
+          <select id="sort-by" (change)="sort($event)">
+          
+                <option value="HighToLow"  selected disabled hidden>Show High to Low Price</option>
+                <option value="LowToHigh">Show Low to High Price</option>
+              </select>
+        </div>
+  </div>
+</div>
+</div>
+<div class="search-results"
+      infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="end>=36? '': onScrollDown()"
+      >
+ 
+    <div class="container">
+      <table class="table table-striped">
+       <thead style="position: sticky;top: 0" class="thead-light">
+           <tr>
+             <th class="header">Image</th>
+             <th class="header">Collection</th>
+             <th class="header">ProductTitle</th>
+             <th class="header">Price</th>
+             <th class="header">StyleName</th>
+             <th class="header">StyleNumber</th>
+             <th class="header">NetQuantity</th>
+             <th class="header">ProductCode</th>
+             <th class="header">AvailableSizes</th>
+           </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let product of allProducts">
+           <td> <img src="{{product.ListImagePath}}{{ product.Images| split: '|' }}" width="100" height="auto" ></td>
+           <td>{{ product.Collection }}</td>
+           <td>{{ product.ProductTitle }}</td>
+           <td>{{ product.Price }}</td>
+           <td>{{ product.StyleName }}</td>
+           <td>{{ product.StyleNumber }}</td>
+           <td>{{ product.NetQuantity }}</td>
+           <td>{{ product.ProductCode }}</td>
+           <td>{{ product.AvailableSizes }}</td>
+         </tr>
+       </tbody>
+       <tfoot ><tr><td class="footer">{{end}} Records Of Total {{totalProducts}}</td></tr></tfoot>
+     </table>  
+ </div>
+  
+</div>

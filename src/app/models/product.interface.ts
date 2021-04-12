@@ -1,0 +1,22 @@
+export interface IProduct{
+    ProductURL: "navy-melange-ankle-socks-7002",
+    // Collection: "USA Originals",
+    AvailableSizes: "FREE SIZE",
+    ProductId: 7102,
+    ProductCode: "610377140",
+    Images: "7002_navymel11.jpg|7002_navymel21.jpg|7002_navymel31.jpg|7002_navymel41.jpg",
+    ListImagePath: "https://Static05.Jockeyindia.com/uploads/dealimages/7102/listimages/",
+    SmallImagePath: "https://Static05.Jockeyindia.com/uploads/dealimages/7102/smallimages/",
+    // MRP: 119,
+    Price: 119,
+    ProductTitle: "Navy Melange Ankle Socks",
+    StyleName: "Ankle Socks",
+    StyleNumber: "7002",
+    // SortOrder: 1,
+    // NumberofPieces: 1,
+    NetQuantity: 2,
+    ListId: "7002 1",
+    ViewCount: 66583,
+    MinimumPrice: 119,
+   
+}
